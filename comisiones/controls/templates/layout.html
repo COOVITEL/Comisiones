@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Comisiones</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a class="bar" href="{% url 'welcome' %}">Inicio</a>
+                <input type="checkbox" name="" id="toggle">
+                <label for="toggle"><i class="material-icons">menu</i></label>
+                <div class="menu">
+                    <ul>
+                        <li>
+                            <a class="bar" href="{% url 'asesores'%}">Asesores</a>
+                        </li>
+                        <li>
+                            <a class="bar" href="{% url 'sucursales'%}">Sucursales</a>
+                        </li>
+                        <li>
+                            <a class="bar" href="{% url 'types_comisiones' %}">Comisiones</a>
+                        </li>
+                        <li>
+                            <a class="bar" href="#">Contact Me</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            {% block contein %}
+            {% endblock  %}
+        </main>
+        <script src="" async defer></script>
+    </body>
+</html>

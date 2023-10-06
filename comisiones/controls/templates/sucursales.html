@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Sucursales</h1>
+    <div>
+        <ul>
+            {% for city in citys %}
+                <li>{{city.city}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <a href="{% url 'createsucursal' %}">Sucrsal Nueva</a>
+    </div>
+{% endblock  %}

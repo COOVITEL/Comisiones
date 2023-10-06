@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <div>
+        <form action="createsucursal" method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="sucursal">Sucursal Nueva</label>
+                <input type="text" name="sucursal" aria-required="">
+            </div>
+            <input type="submit" value="Crear">
+        </form>
+    </div>
+{% endblock  %}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Asesores</h1>
+    <form method="get">
+        <select name="ciudad">
+            <option value="">-- Selecciona una ciudad --</option>
+            {% for sucursal in ciudades %}
+                <option value="{{ sucursal.city }}">{{ sucursal.city }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Filtrar">
+        <input type="submit" name="todos" value="Todos">
+    </form>
+
+    <div>
+        <table>
+            <tr>
+                <td>Asesor</td>
+                <td>Sucursal</td>
+            </tr>
+            {% for asesor in asesores %}
+            <tr>
+                <td>{{ asesor.name }}</td>
+                <td>{{ asesor.sucursal }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
+        <a href="{% url 'createasesor' %}">Asesor nuevo</a>
+    </div>
+    
+{% endblock  %}
