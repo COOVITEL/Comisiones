@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Comision cooviahorro</h1>
+    <div>
+        <table>
+            <tr>
+                <td>Monto</td>
+                <td>Valor comisión</td>
+            </tr>
+            {% for coov in coovi %}
+                <tr>
+                    <td>{{ coov.monto}}</td>
+                    <td>{{ coov.value}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'types_comisiones' %}"><h3>Volver</h3></a>
+    </div>
+{% endblock  %}

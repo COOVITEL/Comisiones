@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Comisión Ahorro Vista</h1>
+    <div>
+        <table>
+            <tr>
+                <td>Desde</td>
+                <td>Hasta</td>
+                <td>% sobre el salgo promedio</td>
+            </tr>
+            {% for ahorro in ahorros %}
+                <tr>
+                    <td>{{ahorro.since}}</td>
+                    <td>{{ahorro.until}}</td>
+                    <td>{{ahorro.porcentaje}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'types_comisiones' %}"><h3>Volver</h3></a>
+    </div>
+{% endblock  %}

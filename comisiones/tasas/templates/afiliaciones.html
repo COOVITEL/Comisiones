@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Comisiones Afiliaciones</h1>
+    <div>
+        <table>
+            <tr>
+                <td>Desde</td>
+                <td>Hasta</td>
+                <td>Valor por afiliación</td>
+            </tr>
+            {% for afi in afiliacion %}
+            <tr>
+                <td>{{ afi.since }}</td>
+                <td>{{ afi.until }}</td>
+                <td>{{ afi.value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a href="{% url 'types_comisiones' %}"><h3>Volver</h3></a>
+{% endblock  %}
