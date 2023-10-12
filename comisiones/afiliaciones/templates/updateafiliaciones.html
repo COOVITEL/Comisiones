@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h2>Actualización afiliacion</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="since">Afiliaciones desde</label>
+            <input id="since" type="number" name="since" value={{afi.since}}>
+        </div>
+        <div>
+            <label for="until">hasta</label>
+            <input type="text" id="until" name="until" value={{afi.until}}>
+        </div>
+        <div>
+            <label for="value">Monto por afiliacion</label>
+            <input type="text" id="value" name="value" value={{afi.value}}>
+        </div>
+        <input type="submit" value"Actualizar" href="{% url 'afiliaciones' %}"/>
+    </form>
+    <a href="{% url 'afiliaciones' %}">Volver</a>
+{% endblock contein %}

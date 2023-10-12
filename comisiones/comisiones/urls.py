@@ -3,7 +3,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path("", include("controls.urls")),
-    path("", include("tasas.urls")),
+    path("afiliaciones/", include("afiliaciones.urls")),
+    path("colocaciones/", include("colocaciones.urls")),
+    path("comisiones/", include("tasas.urls")),
+    path('admin/', admin.site.urls),
 ]

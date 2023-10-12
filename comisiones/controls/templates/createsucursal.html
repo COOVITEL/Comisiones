@@ -2,13 +2,14 @@
 
 {% block contein %}
     <div>
-        <form action="createsucursal" method="POST">
+        <form method="POST">
             {% csrf_token %}
             <div>
-                <label for="sucursal">Sucursal Nueva</label>
-                <input type="text" name="sucursal" aria-required="">
+                <label for="city">Sucursal Nueva</label>
+                <input type="text" name="city" id="city" required>
             </div>
-            <input type="submit" value="Crear">
+            <input type="submit" value="Crear" href="{% url 'sucursales' %}"/>
         </form>
     </div>
+    <a href="{% url 'sucursales' %}">Volver</a>
 {% endblock  %}

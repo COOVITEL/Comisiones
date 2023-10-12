@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <div>
+        <h2>Nueva Comision Afiliaciones</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="since">Afiliaciones desde</label>
+                <input type="number" id="since" name="since" required>
+            </div>
+            <div>
+                <label for="until">hasta</label>
+                <input type="number" id="until" name="until" required>
+            </div>
+            <div>
+                <label for="value">valor x afiliacion</label>
+                <input type="number" id="value" name="value" required>
+            </div>
+            <input type="submit" value="Crear" href="{% url 'afiliaciones' %}"/>
+        </form>
+    </div>
+    <a href="{% url 'afiliaciones' %}">Volver</a>
+{% endblock contein %}

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h2>Acualizacion</h2>
+    <p>Actualiza los datos de los rangos para la comision de colocaciones</p>
+    <h3>Asesores {{col.type}}</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="tasaMin">Tasa Minima</label>
+            <input type="text" id="tasaMin" name="tasaMin" value={{col.tasaMin}} required>
+        </div>
+        <div>
+            <label for="tasaMax">Tasa Maxima</label>
+            <input type="text" id="tasaMax" name="tasaMax" value={{col.tasaMax}} required>
+        </div>
+        <div>
+            <label for="since">Monto desde</label>
+            <input type="text" id="since" name="since" value={{col.since}} required>
+            
+            <label for="until">Monto hasta</label>
+            <input type="text" id="until" name="until" value={{col.until}} required>
+        </div>
+        <div>
+            <label for="value">Valor por millon colocado</label>
+            <input type="text" id="value" name="value" value={{col.value}} required>
+        </div>
+        <input type="submit" value="Actualizar" href="{% url 'colocaciones' %}"/>
+    </form>
+    <a href="{% url 'colocaciones' %}">Volver</a>
+{% endblock contein %}

@@ -5,6 +5,7 @@
     <form method="get">
         <select name="ciudad">
             <option value="">-- Selecciona una ciudad --</option>
+            
             {% for sucursal in ciudades %}
                 <option value="{{ sucursal.city }}">{{ sucursal.city }}</option>
             {% endfor %}
@@ -18,11 +19,13 @@
             <tr>
                 <td>Asesor</td>
                 <td>Sucursal</td>
+                <td></td>
             </tr>
             {% for asesor in asesores %}
             <tr>
                 <td>{{ asesor.name }}</td>
                 <td>{{ asesor.sucursal }}</td>
+                <td><a href="{% url 'deleteasesor' asesor.id %}" onclick="return confirm('Esta seguro de eliminar el asesor {{asesor.name}}?')">Borrar</a></td>
             </tr>
             {% endfor %}
         </table>

@@ -3,13 +3,20 @@
 {% block contein %}
     <h1>Sucursales</h1>
     <div>
-        <ul>
+        <table>
+            <tr>
+                <td>Sucursal</td>
+                <td></td>
+            </tr>
             {% for city in citys %}
-                <li>{{city.city}}</li>
+                <tr>
+                    <td>{{city.city}}</td>
+                    <td><a href="{% url 'deletesucursal' city.id %}" onclick="return confirm('Esta seguro de eliminar la sucursal {{city.city}}?')">Borrar</a></td>
+                </tr>
             {% endfor %}
-        </ul>
+        </table>
     </div>
     <div>
-        <a href="{% url 'createsucursal' %}">Sucrsal Nueva</a>
+        <a href="{% url 'createsucursal' %}">Sucursal Nueva</a>
     </div>
 {% endblock  %}

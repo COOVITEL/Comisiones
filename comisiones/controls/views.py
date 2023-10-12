@@ -4,9 +4,11 @@ from .models import Asesor, Sucursal
 # Create your views here.
 
 def welcome(request):
+    """"""
     return render(request, "layout.html")
 
 def asesores(request):
+    """"""
     ciudad = Sucursal.objects.all()
     city = request.GET.get("ciudad", None)
     todos = request.GET.get("todos", None)
@@ -19,6 +21,7 @@ def asesores(request):
     return render(request, "asesores.html", {"asesores": asesores, "ciudades": ciudad})
 
 def createasesor(request):
+    """"""
     citys = Sucursal.objects.all()
     if request.method == "POST":
         name = request.POST['name']
@@ -29,17 +32,29 @@ def createasesor(request):
         return redirect("asesores")
     return render(request, 'createasesor.html', {"citys": citys})
 
+def deleteasesor(request, id):
+    """"""
+    asesor = Asesor.objects.get(id=id)
+    asesor.delete()
+    return redirect('asesores')
+
 
 def sucursales(request):
+    """"""
     citys = Sucursal.objects.all()
     return render(request, "sucursales.html", {"citys": citys})
 
 def createsucursal(request):
+    """"""
     if request.method == "POST":
-        city = request.POST['sucursal']
-        sucursal, created = Sucursal.objects.get_or_create(city=city)
-        if created:
-            sucursal.save()
+        city = request.POST['city']
+        create = Sucursal(city=city)
+        create.save()
         return redirect("sucursales")
     return render(request, "createsucursal.html")
 
+def deleteSucursal(request, id):
+    """"""
+    sucursal = Sucursal.objects.get(id=id)
+    sucursal.delete()
+    return redirect("sucursales")

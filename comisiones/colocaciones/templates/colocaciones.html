@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Comisiones Colocaciones</h1>
+    <a href="{% url 'createcol' %}">Nueva Colocacion</a>
+    <div>
+        <table>
+            <h3>Internos, Externos</h3>
+            <tr>
+                <td>Tasa Min</td>
+                <td>Tasa Max</td>
+                <td>Monto desde</td>
+                <td>Monto hasta</td>
+                <td>Por cada millon colocado</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for int in internos %}
+            <tr>
+                <td>{{int.tasaMin}}</td>
+                <td>{{int.tasaMax}}</td>
+                <td>{{int.since}}</td>
+                <td>{{int.until}}</td>
+                <td>{{int.value}}</td>
+                <td><a href="{% url 'updatecol' int.id %}">Actualizar</a></td>
+                <td><a href="{% url 'deletecol' int.id %}" onclick="return confirm('Esta seguro de eliminar este rango?')">Borrar</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+        <br>
+        <table>
+            <h3>Master</h3>
+            <tr>
+                <td>Tasa Min</td>
+                <td>Tasa Max</td>
+                <td>Monto desde</td>
+                <td>Monto hasta</td>
+                <td>Por cada millon colocado</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for master in masters %}
+            <tr>
+                <td>{{master.tasaMin}}</td>
+                <td>{{master.tasaMax}}</td>
+                <td>{{master.since}}</td>
+                <td>{{master.until}}</td>
+                <td>{{master.value}}</td>
+                <td><a href="{% url 'updatecol' master.id %}">Actualizar</a></td>
+                <td><a href="{% url 'deletecol' master.id %}" onclick="return confirm('Esta seguro de eliminar este rango?')">Borrar</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+        <br>
+        <table>
+            <h3>Directores y Coodinadores</h3>
+            <tr>
+                <td>Tasa Min</td>
+                <td>Tasa Max</td>
+                <td>Monto desde</td>
+                <td>Monto hasta</td>
+                <td>Por cada millon colocado</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for director in directores %}
+            <tr>
+                <td>{{director.tasaMin}}</td>
+                <td>{{director.tasaMax}}</td>
+                <td>{{director.since}}</td>
+                <td>{{director.until}}</td>
+                <td>{{director.value}}</td>
+                <td><a href="{% url 'updatecol' director.id %}">Actualizar</a></td>
+                <td><a href="{% url 'deletecol' director.id %}" onclick="return confirm('Esta seguro de eliminar este rango?')">Borrar</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+    <a href="{% url 'types_comisiones' %}"><h3>Volver</h3></a>
+{% endblock contein %}

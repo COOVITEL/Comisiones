@@ -3,7 +3,7 @@
 {% block contein %}
       <div>
         <h2>Nuevo asesor</h2>
-        <form action="createasesor" method="POST">
+        <form method="POST">
             {% csrf_token %}
             <div>
                 <label for="name">Nombre</label>
@@ -15,7 +15,7 @@
                     <option value={{ sucursal.city }}>{{ sucursal.city }}</option>
                 {% endfor %}
             </select>
-            <input type="submit" value="Crear">
+            <input type="submit" value="Crear" href="{% url 'asesores' %}"/>
         </form>
     </div>
     <a href="{% url 'asesores' %}">Volver</a>

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Nuevo Colocacion</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="tasaMin">Tasa Minima</label>
+            <input type="text" name="tasaMin" id="tasaMin" required>
+        </div>
+        <div>
+            <label for="tasaMax">Tasa Maxima</label>
+            <input type="text" name="tasaMax" id="tasaMax" required>
+        </div>
+        <div>
+            <label for="since">Monto desde</label>
+            <input type="text" id="since" name="since" required>
+        </div>
+        <div>
+            <label for="until">Monto hasta</label>
+            <input type="text" name="until" id="until" required>
+        </div>
+        <div>
+            <label for="value">Valor</label>
+            <input type="text" name="value" id="value" required>
+        </div>
+        <div>
+            <select name="type" required>
+                <option value="">-- Tipo Asesor --</option>
+                <option value="InternosyExternos">Interno, Externo</option>
+                <option value="Master">Master</option>
+                <option value="DirectoryCoordinador">Director, Coordinador</option>
+            </select>
+        </div>
+        <input type="submit" value="Crear" href="{% url 'colocaciones' %}">
+    </form>
+    <a href="{% url 'colocaciones' %}">Volver</a>
+{% endblock contein %}

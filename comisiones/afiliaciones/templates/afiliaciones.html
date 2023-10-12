@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Comisiones Afiliaciones</h1>
+    <a href="{% url 'createafiliacion' %}">Nueva afiliacion</a>
+    <div>
+        <table>
+            <tr>
+                <td>Desde</td>
+                <td>Hasta</td>
+                <td>Valor por afiliación</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for afi in afiliacion %}
+            <tr>
+                <td>{{ afi.since }}</td>
+                <td>{{ afi.until }}</td>
+                <td>{{ afi.value }}</td>
+                <td><a href="{% url 'updateafi' afi.id %}">Actualizar</a></td>
+                <td><a href="{% url 'deleteafi' afi.id %}" onclick="return confirm('Esta seguro de eliminar este dato?')">Borrar</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a href="{% url 'types_comisiones' %}"><h3>Volver</h3></a>
+{% endblock  %}
