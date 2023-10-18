@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Comisiones Crecimiento base social por canal o sucursal</h1>
+    <a href="{% url 'createBase' %}">Nuevo rango de Comision de Crecimiento</a>
+    <div>
+        <table>
+            <tr>
+                <td>Numero de Asociados</td>
+                <td>Valor por afiliacion</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for obj in objs %}
+            <tr>
+                <td>{{ obj.amount }}</td>
+                <td>{{ obj.value }}</td>
+                <td><a href="{% url 'updateBase' obj.id %}">Actualizar</a></td>
+                <td><a href="{% url 'deleteBase' obj.id %}" onclick="return confirm('Esta seguro de eliminar esta Comision de Crecimiento Base Social?')">Borrar</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a href="{% url 'types_comisiones' %}"><h3>Volver</h3></a>
+{% endblock  %}

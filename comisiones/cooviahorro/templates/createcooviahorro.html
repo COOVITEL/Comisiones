@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <div>
+        <h2>Nueva Comision Cooviahorro</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="monto">Por cada</label>
+                <input type="text" id="monto" name="monto" required>
+            </div>
+            <div>
+                <label for="value">Monto comision </label>
+                <input type="text" id="value" name="value" required>
+            </div>
+            <input type="submit" name="Crear" href="{% url 'cooviahorros' %}">
+        </form>
+        <a href="{% url 'cooviahorros' %}">Volver</a>
+    </div>
+{% endblock contein %}

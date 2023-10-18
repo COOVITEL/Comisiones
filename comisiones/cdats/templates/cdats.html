@@ -3,12 +3,15 @@
 {% block contein %}
     <h1>Comisiones CDATS</h1>
     <div>
+        <a href="{% url 'createcdat' %}">Nuevo CDAT</a>
         <table>
             <tr>
                 <td>Monto desde</td>
-                <td>Monto hasta</td>
+                <td> hasta</td>
                 <td>Comision x Millon</td>
                 <td>Tipo de recurso</td>
+                <td></td>
+                <td></td>
             </tr>
             {% for cdat in cdats %}
                 <tr>
@@ -16,6 +19,8 @@
                     <td>{{cdat.until}}</td>
                     <td>{{cdat.value}}</td>
                     <td>{{cdat.type}}</td>
+                    <td><a href="{% url 'updatecdat' cdat.id %}">Actualizar</a></td>
+                    <td><a href="{% url 'deletecdat' cdat.id %}" onclick="return confirm('Esta seguro de eliminar esta comision de Cdat?')">Eliminar</a></td>
                 </tr>
             {% endfor %}
         </table>

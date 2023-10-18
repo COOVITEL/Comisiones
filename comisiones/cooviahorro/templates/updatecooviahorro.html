@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <div>
+        <h2>Actualizar Comision Cooviahorro</h2>
+        <form method='POST'>
+            {% csrf_token %}
+            <div>
+                <label for="monto">Por cada</label>
+                <input type="text" id="monto" name="monto" value={{coovi.monto}} required>
+                <label for="value">comision de</label>
+                <input type="text" id="value" name="value" value={{coovi.value}} required>
+            </div>
+            <input type="submit" name="Actualizar" href="{% url 'cooviahorros' %}" onclick="return confirm('Esta seguro de cambiar la comision de cooviahorro?')">
+        </form>
+        <a href="{% url 'cooviahorros' %}">Volver</a>
+    </div>
+{% endblock  %}

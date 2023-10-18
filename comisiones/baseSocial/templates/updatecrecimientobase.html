@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h2>Actualización Crecimiento Base Social</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="amount">Numero de crecimiento de asociados</label>
+            <input id="amount" type="number" name="amount" value={{base.amount}}>
+        </div>
+        <div>
+            <label for="value">Comision por crecimiento</label>
+            <input type="number" id="value" name="value" value={{base.value}}>
+        </div>
+        <input type="submit" value"Actualizar" href="{% url 'baseSocial' %}" onclick="return confirm('Estas seguro de Actualizar Comision AhorroVista?')"/>
+    </form>
+    <a href="{% url 'baseSocial' %}">Volver</a>
+{% endblock contein %}

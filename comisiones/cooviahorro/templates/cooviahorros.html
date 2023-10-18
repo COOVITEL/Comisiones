@@ -2,16 +2,21 @@
 
 {% block contein %}
     <h1>Comision cooviahorro</h1>
+    <a href="{% url 'createcoovi' %}"><h3>Nuevo Cooviahorro comisión </h3></a>
     <div>
         <table>
             <tr>
                 <td>Monto</td>
                 <td>Valor comisión</td>
+                <td></td>
+                <td></td>
             </tr>
             {% for coov in coovi %}
                 <tr>
                     <td>{{ coov.monto}}</td>
                     <td>{{ coov.value}}</td>
+                    <td><a href="{% url 'updatecoovi' coov.id %}">Actualizar</a></td>
+                    <td><a href="{% url 'deletecoovi' coov.id %}" onclick="return confirm('Esta seguro de eliminar este Cooviahorro Comisión')">Eliminar</a></td>
                 </tr>
             {% endfor %}
         </table>

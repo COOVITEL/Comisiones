@@ -3,17 +3,22 @@
 {% block contein %}
     <h1>Comisión Ahorro Vista</h1>
     <div>
+        <a href="{% url 'createahorro' %}">Nueva Comision AHorroVista</a>
         <table>
             <tr>
                 <td>Desde</td>
                 <td>Hasta</td>
                 <td>% sobre el salgo promedio</td>
+                <td></td>
+                <td></td>
             </tr>
             {% for ahorro in ahorros %}
                 <tr>
                     <td>{{ahorro.since}}</td>
                     <td>{{ahorro.until}}</td>
                     <td>{{ahorro.porcentaje}}</td>
+                    <td><a href="{% url 'updateahorro' ahorro.id %}">Actualizar</a></td>
+                    <td><a href="{% url 'deleteahorro' ahorro.id %}" onclick="return confirm('Estas seguro de eliminar Comision AhorroVista?')">Eliminar</a></td>
                 </tr>
             {% endfor %}
         </table>

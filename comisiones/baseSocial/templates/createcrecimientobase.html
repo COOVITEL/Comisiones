@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <div>
+        <h2>Nueva Comision Crecimiento Base Social</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="amount">Numero de crecimiento en asosiados</label>
+                <input type="number" id="amount" name="amount" required>
+            </div>
+            <div>
+                <label for="value">Comsion por crecimiento</label>
+                <input type="number" id="value" name="value" required>
+            </div>
+            <input type="submit" value="Crear" href="{% url 'baseSocial' %}"/>
+        </form>
+    </div>
+    <a href="{% url 'baseSocial' %}">Volver</a>
+{% endblock contein %}

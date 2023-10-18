@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'tasas',
     'afiliaciones',
     'colocaciones',
+    'cdats',
+    'cooviahorro',
+    'ahorrovista',
+    'baseSocial',
 ]
 
 MIDDLEWARE = [

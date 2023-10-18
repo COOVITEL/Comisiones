@@ -2,44 +2,6 @@
 from django.db import models
 
 
-
-class Cdats(models.Model):
-    """"""
-    since = models.CharField(max_length=50)
-    until = models.CharField(max_length=50)
-    value = models.CharField(max_length=50)
-    type = models.CharField(max_length=50)
-
-    def __str__(self) -> str:
-        return f"CDATS Desde {self.since} Hasta {self.until}"
-
-
-class Cooviahorro(models.Model):
-    """"""
-    monto = models.CharField(max_length=50)
-    value = models.CharField(max_length=50)
-
-    def __str__(self) -> str:
-        return f"Cooviahorro {self.value} por cada {self.monto}"
-
-
-class AhorroVista(models.Model):
-    """"""
-    since = models.CharField(max_length=50)
-    until = models.CharField(max_length=50)
-    porcentaje = models.CharField(max_length=50)
-
-    def __str__(self) -> str:
-        return f"Ahorro Vista Desde {self.since} Hasta {self.until}"
-
-class CrecimeintoBaseSocial(models.Model):
-    """"""
-    amount = models.CharField(max_length=50)
-    value = models.CharField(max_length=50)
-    
-    def __str__(self) -> str:
-        return f"{self.value} por cada {self.amount}"
-
 class CrecimientoCartera(models.Model):
     """"""
     tasaMin = models.CharField(max_length=50)

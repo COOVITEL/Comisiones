@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <div>
+        <h2>Actualizar Comisión CDAT</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <h4>Comisión Cdat {{cdat.type}}</h4>
+            <div>
+                <label for="since">Monto desde</label>
+                <input type="text" id="since" name="since" value={{cdat.since}} required>
+                <label for="until">hasta</label>
+                <input type="text" id="until" name="until" value={{cdat.until}} required>
+            </div>
+            <div>
+                <label for="value">Valor por millon</label>
+                <input type="text" id="value" name="value" value={{cdat.value}} required>
+            </div>
+            <input type="submit" name="Actualizar" href="{% url 'cdats' %}" onclick="return confirm('Esta seguro de actualizar los datos?')">
+        </form>
+        <a href="{% url 'cdats' %}">Volver</a>
+    </div>
+{% endblock contein %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <div>
+        <h2>Nueva Comision AhorroVista</h2>
+        <p>Por millon de saldo promedio diario en el mes.</p>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="since">Desde</label>
+                <input type="number" id="since" name="since" required>
+                <label for="until">hasta</label>
+                <input type="number" id="until" name="until" required>
+            </div>
+            <div>
+                <label for="porcentaje">% sobre el saldo promedio</label>
+                <input type="float" id="porcentaje" name="porcentaje" required>
+            </div>
+            <input type="submit" value="Crear" href="{% url 'ahorrovista' %}"/>
+        </form>
+    </div>
+    <a href="{% url 'ahorrovista' %}">Volver</a>
+{% endblock contein %}

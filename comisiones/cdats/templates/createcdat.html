@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <div>
+        <h2>Nuevo Cdat</h2>
+        <form method='POST'>
+            {% csrf_token %}
+            <div>
+                <label for="since">Monto desde</label>
+                <input type="text" id="since" name="since" required>
+                <label for="until">hasta</label>
+                <input type="text" id="until" name="until" required>
+            </div>
+            <div>
+                <label for="value">Valor por cada millon colocado</label>
+                <input type="text" id="value" name="value" required>
+            </div>
+            <select name="type" required>
+                <option value="">-- Seleccione tipo de cdat --</option>
+                <option value="Nuevo">Nuevo</option>
+                <option value="Renovado">Renovado</option>
+            </select>
+            <input type="submit" name="Crear" href="{% url 'cdats' %}">
+        </form>
+        <a href="{% url 'cdats' %}">Volver</a>
+    </div>
+{% endblock contein %}
