@@ -11,5 +11,10 @@ urlpatterns = [
     path("cooviahorro/", include("cooviahorro.urls")),
     path("ahorrovista/", include("ahorrovista.urls")),
     path("crecimientoBaseSocial/", include("baseSocial.urls")),
+    path("cartera/", include("cartera.urls")),
+    path("crecimientoCdat/", include("crecimientoCDAT.urls")),
+    path("crecimientoCooviahorro/", include("crecimientoCooviahorro.urls")),
+    path("captacionAhorroVista/", include("captacionAhorroVista.urls")),
+    path("utilidad/", include("utilidad.urls")),
     path('admin/', admin.site.urls),
 ]

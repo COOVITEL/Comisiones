@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <div>
+        <h2>Nueva Crecimiento Saldo CDAT</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="tasaMin">Tasa Minima promedio captada</label>
+                <input type="float" id="tasaMin" name="tasaMin" required>
+            </div>
+            <div>
+                <label for="tasaMax">Tasa Minima promedio captada</label>
+                <input type="float" id="tasaMax" name="tasaMax" required>
+            </div>
+            <div>
+                <label for="value">Valor comision por cada millon de crecimiento</label>
+                <input type="number" id="value" name="value" required>
+            </div>
+            <input type="submit" value="Crear" href="{% url 'crecimientoCdat' %}"/>
+        </form>
+    </div>
+    <a href="{% url 'crecimientoCdat' %}">Volver</a>
+{% endblock contein %}

@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h2>Comisiones {{asesor.name}}</h2>
+
+    <table>Afiliaciones
+        <tr>
+            <td>Fecha Registro</td>
+            <td>Codigo Interno</td>
+            <td>Cedula</td>
+            <td>Nombre</td>
+            <td>Regional</td>
+            <td>Sucursal</td>
+        </tr>
+        {% for afi in afiliaciones %}
+            <tr>
+                <td>{{afi.FECHA_REGISTRO}}</td>
+                <td>{{afi.COD_INTERNO}}</td>
+                <td>{{afi.CD}}</td>
+                <td>{{afi.NOMBRES}}</td>
+                <td>{{afi.REGINAL}}</td>
+                <td>{{afi.SUCURSAL}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    </br>
+    <table>Colocaciones
+        <tr>
+            <td>Fecha Registro</td>
+            <td>Codigo Interno</td>
+            <td>Cedula</td>
+            <td>Nombre</td>
+            <td>Regional</td>
+            <td>Sucursal</td>
+        </tr>
+        {% for afi in afiliaciones %}
+            <tr>
+                <td>{{afi.FECHA_REGISTRO}}</td>
+                <td>{{afi.COD_INTERNO}}</td>
+                <td>{{afi.CD}}</td>
+                <td>{{afi.NOMBRES}}</td>
+                <td>{{afi.REGINAL}}</td>
+                <td>{{afi.SUCURSAL}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock contein %}

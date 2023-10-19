@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Crecimiento Cartera Productiva</h1>
+    <a href="{% url 'createcartera' %}">Nuevo rango Crecimiento Cartera Productiva</a>
+    <div>
+        <table>
+            <tr>
+                <td>Tasa promedio Minima</td>
+                <td>Tasa promedio Maxima</td>
+                <td>Valor Minimo de crecimiento en el mes</td>
+                <td>Valor Maximo de crecimiento en el mes</td>
+                <td>Pago por Millon de crecimiento</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for date in dates %}
+            <tr>
+                <td>{{ date.tasaMin }}</td>
+                <td>{{ date.tasaMax }}</td>
+                <td>{{ date.since }}</td>
+                <td>{{ date.until }}</td>
+                <td>{{ date.value }}</td>
+                <td><a href="{% url 'updatecartera' date.id %}">Actualizar</a></td>
+                <td><a href="{% url 'deletecartera' date.id %}" onclick="return confirm('Esta seguro de eliminar esta Comision de Crecimiento Base Social?')">Borrar</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a href="{% url 'types_comisiones' %}"><h3>Volver</h3></a>
+{% endblock contein %}

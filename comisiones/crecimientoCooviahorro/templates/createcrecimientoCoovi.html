@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <div>
+        <h2>Nueva Crecimiento Saldo COOVIAHORRO</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="since">Por cada monto en el saldo total</label>
+                <input type="float" id="since" name="since" required>
+            </div>
+            <div>
+                <label for="value">Valor comision</label>
+                <input type="number" id="value" name="value" required>
+            </div>
+            <input type="submit" value="Crear" href="{% url 'crecimientoCooviahorro' %}"/>
+        </form>
+    </div>
+    <a href="{% url 'crecimientoCooviahorro' %}">Volver</a>
+{% endblock contein %}

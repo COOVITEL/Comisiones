@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Crecimiento Saldo CDAT</h1>
+    <a href="{% url 'createCrecimientoCdat' %}"><h3>Nuevo rango Crecimiento Saldo CDAT</h3></a>
+    <div>
+        <table>
+            <tr>
+                <td>Tasa Minima promedio</td>
+                <td>Tasa Maxima promedio</td>
+                <td>Valor Comision por cada Millon</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for cdat in cdats %}
+                <tr>
+                    <td>{{ cdat.tasaMin}}</td>
+                    <td>{{ cdat.tasaMax}}</td>
+                    <td>{{ cdat.value}}</td>
+                    <td><a href="{% url 'updateCrecimientoCdat' cdat.id %}">Actualizar</a></td>
+                    <td><a href="{% url 'deleteCrecimientoCdat' cdat.id %}" onclick="return confirm('Esta seguro de eliminar este rango de Crecimiento CDAT')">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'types_comisiones' %}"><h3>Volver</h3></a>
+    </div>
+{% endblock  %}

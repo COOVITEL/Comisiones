@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Crecimiento Saldo Cooviahorro</h1>
+    <a href="{% url 'createCrecimientoCooviahorro' %}"><h3>Nuevo rango Crecimiento Saldo Cooviahorro</h3></a>
+    <div>
+        <table>
+            <tr>
+                <td>Comision por cada monto en el saldo total</td>
+                <td>Valor Comision</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for coovi in coovis %}
+                <tr>
+                    <td>{{ coovi.since}}</td>
+                    <td>{{ coovi.value}}</td>
+                    <td><a href="{% url 'updateCrecimientoCooviahorro' coovi.id %}">Actualizar</a></td>
+                    <td><a href="{% url 'deleteCrecimientoCooviahorro' coovi.id %}" onclick="return confirm('Esta seguro de eliminar este rango de Crecimiento COOVIAHORRO')">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'types_comisiones' %}"><h3>Volver</h3></a>
+    </div>
+{% endblock  %}

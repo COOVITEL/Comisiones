@@ -45,6 +45,11 @@ INSTALLED_APPS = [
     'cooviahorro',
     'ahorrovista',
     'baseSocial',
+    'cartera',
+    'crecimientoCDAT',
+    'crecimientoCooviahorro',
+    'captacionAhorroVista',
+    'utilidad',
 ]
 
 MIDDLEWARE = [

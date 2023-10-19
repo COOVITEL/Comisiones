@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <div>
+        <h2>Actualizar rango Utilidad</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="rangoMin">Rango margen desde</label>
+                <input type="float" id="rangoMin" name="rangoMin" value={{uti.rangoMin}} required>
+            </div>
+            <div>
+                <label for="rangoMax">Rango margen hasta</label>
+                <input type="float" id="rangoMax" name="rangoMax" value={{uti.rangoMax}} required>
+            </div>
+            <div>
+                <label for="small">Categoria Oficina-Canal Pequeña</label>
+                <input type="number" id="small" name="small" value={{uti.small}} required>
+            </div>
+            <div>
+                <label for="medium">Categoria Oficina-Canal Mediana</label>
+                <input type="number" id="medium" name="medium" value={{uti.medium}} required>
+            </div>
+            <div>
+                <label for="big">Categoria Oficina-Canal Grande</label>
+                <input type="number" id="big" name="big" value={{uti.big}} required>
+            </div>
+            <input type="submit" value="Crear"  onclick="return confirm('Esta seguro de actualizar este rango de Utilidad')"/>
+        </form>
+    </div>
+    <a href="{% url 'utilidad' %}">Volver</a>
+{% endblock contein %}

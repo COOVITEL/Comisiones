@@ -16,11 +16,11 @@
         <h3>Directores y Coodinadores de Oficina y Canal</h3>
         <ul>
             <a href="{% url 'baseSocial' %}"><li>Crecimiento Base Social</li></a>
-            <li>Crecieminto Cartera productiva (Clif. A y B)</li>
-            <li>Crecimiento Saldo CDAT</li>
-            <li>Crecimiento saldo CDAT</li>
-            <li>Captacion Ahorro Vista</li>
-            <li>Utilidad de Oficina o Canal</li>
+            <a href="{% url 'cartera' %}"><li>Crecieminto Cartera productiva (Clif. A y B)</li></a>
+            <a href="{% url 'crecimientoCdat' %}"><li>Crecimiento Saldo CDAT</li></a>
+            <a href="{% url 'crecimientoCooviahorro' %}"><li>Crecimiento Saldo Cooviahorro</li></a>
+            <a href="{% url 'captacionesAhorro' %}"><li>Captacion Ahorro Vista</li></a>
+            <a href="{% url 'utilidad' %}"><li>Utilidad de Oficina o Canal</li></a>
         </ul>
     </div>
 {% endblock  %}

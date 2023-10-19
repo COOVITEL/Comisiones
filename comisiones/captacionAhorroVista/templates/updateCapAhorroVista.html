@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <div>
+        <h2>Actualizar Captacion Ahorro Vista</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="since">Saldo promedio desde</label>
+                <input type="number" id="since" name="since" value={{ahorro.since}} required>
+            </div>
+            <div>
+                <label for="until">Saldo promedio hasta</label>
+                <input type="number" id="until" name="until" value={{ahorro.until}} required>
+            </div>
+            <div>
+                <label for="value">Valor comision por cada millon de crecimiento</label>
+                <input type="float" id="value" name="value" value={{ahorro.value}} required>
+            </div>
+            <input type="submit" value="Actualizar" onclick="return confirm('Esta seguro de actualizar este rango Captaciones Ahorro vista?')"/>
+        </form>
+    </div>
+    <a href="{% url 'captacionesAhorro' %}">Volver</a>
+{% endblock contein %}

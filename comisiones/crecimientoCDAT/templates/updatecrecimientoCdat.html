@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <div>
+        <h2>Actualizar Crecimiento Saldo CDAT</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="tasaMin">Tasa Minima promedio captada</label>
+                <input type="float" id="tasaMin" name="tasaMin" value={{cdat.tasaMin}} required>
+            </div>
+            <div>
+                <label for="tasaMax">Tasa Minima promedio captada</label>
+                <input type="float" id="tasaMax" name="tasaMax" value={{cdat.tasaMax}} required>
+            </div>
+            <div>
+                <label for="value">Valor comision por cada millon de crecimiento</label>
+                <input type="number" id="value" name="value" value={{cdat.value}} required>
+            </div>
+            <input type="submit" value="Actualizar" onclick="return confirm('Esta seguro de eliminar este Cooviahorro Comisión')"/>
+        </form>
+    </div>
+    <a href="{% url 'crecimientoCdat' %}">Volver</a>
+{% endblock contein %}

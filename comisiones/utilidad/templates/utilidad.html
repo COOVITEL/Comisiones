@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Utilidad por Oficina o Canal</h1>
+    <a href="{% url 'createUtilidad' %}"><h3>Nuevo rango Utilidad en Oficina o Canal</h3></a>
+    <div>
+        <table>
+            <tr>
+                <td>Rango margen directo desde</td>
+                <td>Rango margen directo hasta</td>
+                <td>Categoria Oficinal-Canal</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for date in dates %}
+                <tr>
+                    <td>{{ date.rangoMin}}</td>
+                    <td>{{ date.rangoMax}}</td>
+                    <td>{{ date.small}}</td>
+                    <td>{{ date.medium}}</td>
+                    <td>{{ date.big}}</td>
+                    <td><a href="{% url 'updateUtilidad' date.id %}">Actualizar</a></td>
+                    <td><a href="{% url 'deleteUtilidad' date.id %}" onclick="return confirm('Esta seguro de eliminar este rango de Utilidad')">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'types_comisiones' %}"><h3>Volver</h3></a>
+    </div>
+{% endblock  %}

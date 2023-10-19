@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Asesor, Sucursal
+from .read_excel import readExcel
+import pandas as pd
+import os
 
 # Create your views here.
 
@@ -58,3 +61,16 @@ def deleteSucursal(request, id):
     sucursal = Sucursal.objects.get(id=id)
     sucursal.delete()
     return redirect("sucursales")
+
+def comisiones(request, name):
+    """"""
+    dates = {}
+    dates = {"asesor": Asesor.objects.get(name=name),
+             "afiliaciones": readExcel(name, "Afiliaciones", ["CD", "NOMBRES", "CODNOMINA", "NOMINA", "PROMOTOR", "F_CORTE", "SUBZONA", "SUCURSAL"]),
+             #"colocaiones": readExcel(name, "Desembolsos", "NNPROMOT", ["A_OBLIGA", "CD", "NNASOCIA", "CODNOMINA", "NOMINA", "N_MODALI", "MONTO", "CARTERA", "NETO_ANTES", "P_TASEFEC", "NNPROMOT", "F_CORTE", "SUC_PRODUCTO"]),
+             #"rotativo": readExcel(name, "Rotativos", ["A_NUMNIT", "N_NOMBRE", "CODNOMINA", "NOMINA", "N_MODALI", "A_OBLIGA", "SUMA_UTL", "F_CORTE", "SUC_PRODUCTO"]),
+             #"cdat": readExcel(name, "CDAT", "PROMOTOR", ["CC", "NOMBRE_TERCERO", "A_TITULO", "Q_PLADIA", "V_TITULO", "M_ANTERIOR", "T_EFECTIVA", "PROMOTOR", "F_CORTE", "SUC_PRODUCTO"]),
+             #"cooviahorro": readExcel(name, "Cooviahorro", "PROMOTOR", ["NNASOCIA", "CODNOMINA", "NUMERO", "SALDO", "PROMOTOR", "F_CORTE", "SUC_PRODUCTO"]),
+             #"ahorro": readExcel(name, "Ah Vista", "PROMOTOR", ["CEDULA", "NNASOCIA", "CODNOMINA", "NOMINA", "CUENTA", "SALDO", "PROMOTOR", "F_CORTE", "SUC_PRODUCTO"])}
+            }
+    return render(request, "comisiones.html", dates)

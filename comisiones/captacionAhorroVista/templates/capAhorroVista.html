@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h1>Captacion Ahorro Vista Canal</h1>
+    <a href="{% url 'createcaptacionesAhorro' %}"><h3>Nuevo rango Captacion Ahorro Vista</h3></a>
+    <div>
+        <table>
+            <tr>
+                <td>Saldo promedio desde</td>
+                <td>Saldo promedio hasta</td>
+                <td>% sobre el saldo promedio</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for ahorro in ahorros %}
+                <tr>
+                    <td>{{ ahorro.since}}</td>
+                    <td>{{ ahorro.until}}</td>
+                    <td>{{ ahorro.value}}</td>
+                    <td><a href="{% url 'updatecaptacionesAhorro' ahorro.id %}">Actualizar</a></td>
+                    <td><a href="{% url 'deletecaptacionesAhorro' ahorro.id %}" onclick="return confirm('Esta seguro de eliminar este rango de Captacion Ahorro Vista?')">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'types_comisiones' %}"><h3>Volver</h3></a>
+    </div>
+{% endblock  %}

@@ -19,12 +19,14 @@
             <tr>
                 <td>Asesor</td>
                 <td>Sucursal</td>
+                <td>Tabla Comisiones</td>
                 <td></td>
             </tr>
             {% for asesor in asesores %}
             <tr>
                 <td>{{ asesor.name }}</td>
                 <td>{{ asesor.sucursal }}</td>
+                <td><a href="{% url 'comisionesAsesor' asesor.name %}">Comisiones</a></td>
                 <td><a href="{% url 'deleteasesor' asesor.id %}" onclick="return confirm('Esta seguro de eliminar el asesor {{asesor.name}}?')">Borrar</a></td>
             </tr>
             {% endfor %}
