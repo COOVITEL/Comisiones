@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block contein %}
+    <h2>Comisiones {{asesor.name}}</h2>
+
+    <table>
+        <tr>
+            <td>Regional</td>
+            <td>Acumulador Aprovado</td>
+            <td>Acumulado Ahorro</td>
+            <td>Promotor</td>
+            <td>Subzona</td>
+            <td>Sucursal</td>
+        </tr>
+        {% for date in data_dict %}
+            <tr>
+                <td>{{date.REGIONAL}}</td>
+                <td>{{date.ACUM_APO}}</td>
+                <td>{{date.ACUM_AHO}}</td>
+                <td>{{date.SUBONA}}</td>
+                <td>{{date.PROMOTOR}}</td>
+                <td>{{date.SUCURSAL}}</td>
+            </tr>        
+        {% endfor %}
+    </table>
+
+{% endblock contein %}

@@ -66,11 +66,11 @@ def comisiones(request, name):
     """"""
     dates = {}
     dates = {"asesor": Asesor.objects.get(name=name),
-             "afiliaciones": readExcel(name, "Afiliaciones", ["CD", "NOMBRES", "CODNOMINA", "NOMINA", "PROMOTOR", "F_CORTE", "SUBZONA", "SUCURSAL"]),
-             #"colocaiones": readExcel(name, "Desembolsos", "NNPROMOT", ["A_OBLIGA", "CD", "NNASOCIA", "CODNOMINA", "NOMINA", "N_MODALI", "MONTO", "CARTERA", "NETO_ANTES", "P_TASEFEC", "NNPROMOT", "F_CORTE", "SUC_PRODUCTO"]),
+             "afiliaciones": readExcel(name, "Afiliaciones", "PROMOTOR", ["COD_INTERNO", "CODNOMINA", "NOMINA", "PROMOTOR", "F_CORTE", "SUCURSAL"]),
+             #"colocaiones": readExcel(name, "Desembolsos", "NNPROMOT", ["A_OBLIGA", "CODNOMINA", "NOMINA", "MONTO", "CARTERA", "NETO_ANTES", "P_TASEFEC", "NNPROMOT", "F_CORTE", "SUC_PRODUCTO"]),
+             "cdats": readExcel(name, "CDAT", "PROMOTOR", ["CC", "A_TITULO", "Q_PLADIA", "V_TITULO", "M_ANTERIOR", "T_EFECTIVA", "PROMOTOR", "F_CORTE", "SUC_PRODUCTO"]),
+             "cooviahorros": readExcel(name, "Cooviahorro", "PROMOTOR", ["NNASOCIA", "CODNOMINA", "V_CUOTA", "SALDO", "PROMOTOR", "F_CORTE", "SUC_PRODUCTO"]),
              #"rotativo": readExcel(name, "Rotativos", ["A_NUMNIT", "N_NOMBRE", "CODNOMINA", "NOMINA", "N_MODALI", "A_OBLIGA", "SUMA_UTL", "F_CORTE", "SUC_PRODUCTO"]),
-             #"cdat": readExcel(name, "CDAT", "PROMOTOR", ["CC", "NOMBRE_TERCERO", "A_TITULO", "Q_PLADIA", "V_TITULO", "M_ANTERIOR", "T_EFECTIVA", "PROMOTOR", "F_CORTE", "SUC_PRODUCTO"]),
-             #"cooviahorro": readExcel(name, "Cooviahorro", "PROMOTOR", ["NNASOCIA", "CODNOMINA", "NUMERO", "SALDO", "PROMOTOR", "F_CORTE", "SUC_PRODUCTO"]),
-             #"ahorro": readExcel(name, "Ah Vista", "PROMOTOR", ["CEDULA", "NNASOCIA", "CODNOMINA", "NOMINA", "CUENTA", "SALDO", "PROMOTOR", "F_CORTE", "SUC_PRODUCTO"])}
+             "ahorros": readExcel(name, "Ah Vista", "PROMOTOR", ["COD_INTERNO", "NNASOCIA", "CODNOMINA", "NOMINA", "SALDO", "PROMOTOR", "F_CORTE", "SUC_PRODUCTO"])
             }
     return render(request, "comisiones.html", dates)
