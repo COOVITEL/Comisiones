@@ -21,7 +21,7 @@ def asesores(request):
         asesores = Asesor.objects.all()
     else:
         asesores = Asesor.objects.filter(sucursal__city=city)
-    return render(request, "asesores.html", {"asesores": asesores, "ciudades": ciudad})
+    return render(request, "pages/asesores.html", {"asesores": asesores, "ciudades": ciudad})
 
 def createasesor(request):
     """"""
@@ -33,19 +33,19 @@ def createasesor(request):
         create = Asesor(name=name, sucursal=sucursal)
         create.save()
         return redirect("asesores")
-    return render(request, 'createasesor.html', {"citys": citys})
+    return render(request, 'pages/createasesor.html', {"citys": citys})
 
 def deleteasesor(request, id):
     """"""
     asesor = Asesor.objects.get(id=id)
     asesor.delete()
-    return redirect('asesores')
+    return redirect('pages/asesores')
 
 
 def sucursales(request):
     """"""
     citys = Sucursal.objects.all()
-    return render(request, "sucursales.html", {"citys": citys})
+    return render(request, "pages/sucursales.html", {"citys": citys})
 
 def createsucursal(request):
     """"""
@@ -54,7 +54,7 @@ def createsucursal(request):
         create = Sucursal(city=city)
         create.save()
         return redirect("sucursales")
-    return render(request, "createsucursal.html")
+    return render(request, "pages/createsucursal.html")
 
 def deleteSucursal(request, id):
     """"""
@@ -73,4 +73,4 @@ def comisiones(request, name):
              #"rotativo": readExcel(name, "Rotativos", ["A_NUMNIT", "N_NOMBRE", "CODNOMINA", "NOMINA", "N_MODALI", "A_OBLIGA", "SUMA_UTL", "F_CORTE", "SUC_PRODUCTO"]),
              "ahorros": readExcel(name, "Ah Vista", "PROMOTOR", ["COD_INTERNO", "NNASOCIA", "CODNOMINA", "NOMINA", "SALDO", "PROMOTOR", "F_CORTE", "SUC_PRODUCTO"])
             }
-    return render(request, "comisiones.html", dates)
+    return render(request, "pages/comisiones.html", dates)
